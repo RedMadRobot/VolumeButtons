@@ -1,29 +1,38 @@
-# VolumeButtonHandler
+# VolumeButtons
 
-[![CI Status](https://img.shields.io/travis/modestman/VolumeButtonHandler.svg?style=flat)](https://travis-ci.org/modestman/VolumeButtonHandler)
-[![Version](https://img.shields.io/cocoapods/v/VolumeButtonHandler.svg?style=flat)](https://cocoapods.org/pods/VolumeButtonHandler)
-[![License](https://img.shields.io/cocoapods/l/VolumeButtonHandler.svg?style=flat)](https://cocoapods.org/pods/VolumeButtonHandler)
-[![Platform](https://img.shields.io/cocoapods/p/VolumeButtonHandler.svg?style=flat)](https://cocoapods.org/pods/VolumeButtonHandler)
+[![Version](https://img.shields.io/cocoapods/v/VolumeButtons.svg?style=flat)](https://cocoapods.org/pods/VolumeButtons)
+[![License](https://img.shields.io/cocoapods/l/VolumeButtons.svg?style=flat)](https://cocoapods.org/pods/VolumeButtons)
+[![Platform](https://img.shields.io/cocoapods/p/VolumeButtons.svg?style=flat)](https://cocoapods.org/pods/VolumeButtons)
 
-## Example
+VolumeButtons is simple way to handling clicks on hardware volume buttons on iPhone or iPad. 
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Usage
+
+```swift
+self.volumeButtonHandler = VolumeButtonHandler(containerView: view)
+volumeButtonHandler.buttonClosure = { button in
+    // ...
+}
+volumeButtonHandler.start()
+```
+
+## How it works
+
+VolumeButtonHandler class keeps track of volume changes in an audio session. When you increase or decrease the volume level, the value will be reset to the initial one, thus pressing the buttons is determined without changing the volume of the media player. You need to pass in `init` some view of your View Controller for placing hidden instance `MPVolumeView` used for controlling volume level.
 
 ## Requirements
 
+iOS 11 and newer.
+
 ## Installation
 
-VolumeButtonHandler is available through [CocoaPods](https://cocoapods.org). To install
+VolumeButtons is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'VolumeButtonHandler'
+pod 'VolumeButtons'
 ```
 
-## Author
+## References
 
-modestman, a.glezman@redmadrobot.com
-
-## License
-
-VolumeButtonHandler is available under the MIT license. See the LICENSE file for more info.
+This project based on Objective-C code [JPSVolumeButtonHandler](https://github.com/jpsim/JPSVolumeButtonHandler)  
